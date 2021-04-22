@@ -15,7 +15,6 @@ class MyCar extends Component {
             e.target.classList.add('styled')
         }
     }
-
     render() {
         return (
             <div>
