@@ -16,7 +16,7 @@ const Car = ({ children, color }) => {
     }else{
         return (
             <div style={ {backgroundColor: 'pink', width: '400px', padding: '10px', margin: '5px auto'} }>
-                <p>pas de voiture disponible</p> 
+                <p>pas de voiture disponible</p>
             </div>
         )
     }
