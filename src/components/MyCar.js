@@ -6,8 +6,8 @@ class MyCar extends Component {
         return (
             <div>
                 <h1>{this.props.titre}</h1>
-                <Car color='red'></Car>
-                <Car>Mercedes</Car>
+                <Car>Ford</Car>
+                <Car color='black'></Car>
                 <Car color='grey'>Range Rover</Car>
 
                 
