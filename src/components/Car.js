@@ -2,7 +2,7 @@ import React from 'react'
 
 //fonction fleché car on utilise pas de state ici
 
-const Car = ({ children, color }) => { 
+const Car = ({ nom, couleur, year }) => { 
     
     let noCopyTwo = (e) => {
         alert('ne pas copier 2')
@@ -16,12 +16,13 @@ const Car = ({ children, color }) => {
 
     }
 
-    const couleurInfo = color ? (<p>Couleur : { color }</p> ) : (<p>Couleur : Aucune couleur</p>) 
-    if (children) {  
+    const couleurInfo = couleur ? (<p>Couleur : { couleur }</p> ) : (<p>Couleur : Aucune couleur</p>) 
+    if (nom) {  
         return (
             <div style={ {backgroundColor: 'pink', width: '400px', padding: '10px', margin: '5px auto'} }>
-                <p onMouseOver={addStyleTwo} onCopy={noCopyTwo}>Marque : { children }</p>             
+                <p onMouseOver={addStyleTwo} onCopy={noCopyTwo}>Marque : { nom }</p>             
                 { couleurInfo }
+                <p>Année : { year }</p>
                 
             </div>
         )     

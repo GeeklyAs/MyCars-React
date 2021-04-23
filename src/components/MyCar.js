@@ -3,6 +3,25 @@ import Car from './Car'
 
 class MyCar extends Component {
 
+    state = {
+        donneeVoiture : [
+            {nom: 'ford', couleur: 'red', year: 2018},
+            {nom: 'mercedes', couleur: 'black', year: 2009},
+            {nom: 'ford', couleur: 'red', year: 2012}
+        ],
+        titre : 'Mon catalogue voiture 2'
+
+    }
+
+    addTenYear = () => {
+        const updatedState = this.state.donneeVoiture.map((param) => {
+            return param.year -= 10
+        })
+        this.setState({
+            updatedState
+        })
+    }
+
     noCopy = () => {
         alert('merci de ne pas copier')
     }
@@ -16,13 +35,23 @@ class MyCar extends Component {
         }
     }
     render() {
+        const year = new Date().getFullYear()
         return (
             <div>
-                <h1 onMouseOver={this.addStyle}>{this.props.titre}</h1>
+                <button onClick={this.addTenYear}>Ajouter 10 ans</button>
+                <h1 onMouseOver={this.addStyle}>{this.state.titre}</h1>
                 <p onCopy={this.noCopy}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis quae nam, repellat cum aliquid laborum sit mollitia pariatur obcaecati consequatur?</p>
-                <Car>Ford</Car>
-                <Car color='black'></Car>
-                <Car color='grey'>Range Rover</Car>   
+                    { 
+                        this.state.donneeVoiture.map((voiture, index) => {
+                            return(
+                                <div key={index}>
+
+                                    <Car nom={voiture.nom} couleur={voiture.couleur} year={year - voiture.year + ' ans'}/>
+                                </div>
+                            )
+                        }) 
+                        
+                    }
             </div>
         )
     }
